@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Container, Text, VStack, Textarea, Button, Box, Heading } from "@chakra-ui/react";
+import { Container, Text, VStack, Textarea, Button, Box, Heading, Link, Flex } from "@chakra-ui/react";
 
 const Index = () => {
   const [text, setText] = useState("");
@@ -12,7 +12,7 @@ const Index = () => {
   };
 
   return (
-    <Container centerContent maxW="container.md" height="100vh" display="flex" flexDirection="column" justifyContent="center" alignItems="center">
+    <Container centerContent maxW="container.md" height="100vh" display="flex" flexDirection="column" justifyContent="space-between" alignItems="center">
       <VStack spacing={4} width="100%">
         <Heading as="h1" size="xl">Text Summarizer</Heading>
         <Textarea
@@ -30,6 +30,11 @@ const Index = () => {
           </Box>
         )}
       </VStack>
+      <Flex as="footer" width="100%" py={4} justifyContent="center" borderTop="1px solid #eaeaea" mt={4}>
+        <Link href="/privacy-policy" mx={2}>Privacy Policy</Link>
+        <Link href="/terms-of-service" mx={2}>Terms of Service</Link>
+        <Link href="/contact-us" mx={2}>Contact Us</Link>
+      </Flex>
     </Container>
   );
 };
