@@ -13,10 +13,10 @@ const Index = () => {
   };
 
   return (
-    <Container centerContent maxW="container.md" display="flex" flexDirection="column" justifyContent="space-between" alignItems="center" py={8} px={4}>
+    <Container centerContent maxW="container.md" display="flex" flexDirection="column" justifyContent="space-between" alignItems="center" py={8} px={4} bg="white">
       <VStack spacing={8} width="100%">
         <Flex width="100%" alignItems="center" justifyContent="space-between" mb={8}>
-          <Heading as="h1" size="2xl">Text Summarizer</Heading>
+          <Heading as="h1" size="2xl" color="black">Text Summarizer</Heading>
           <Image src={headerImageUrl} alt="Header Image" boxSize="100px" objectFit="cover" borderRadius="full" />
         </Flex>
         <Textarea
@@ -24,69 +24,71 @@ const Index = () => {
           value={text}
           onChange={(e) => setText(e.target.value)}
           size="sm"
+          bg="gray.50"
+          color="black"
           resize="vertical"
         />
         <Button colorScheme="blue" onClick={handleSummarize} size="lg">Summarize</Button>
         {summary && (
           <Box p={6} bg="gray.100" borderRadius="md" width="100%">
-            <Heading as="h2" size="lg">Summary</Heading>
-            <Text mt={4}>{summary}</Text>
+            <Heading as="h2" size="lg" color="black">Summary</Heading>
+          <Text mt={4} color="black">{summary}</Text>
           </Box>
         )}
       </VStack>
 
       {/* Features Section */}
       <Box width="100%" py={12}>
-        <Heading as="h2" size="xl" mb={8}>Features</Heading>
+        <Heading as="h2" size="xl" mb={8} color="black">Features</Heading>
         <SimpleGrid columns={{ base: 1, md: 2 }} spacing={10}>
           <GridItem>
-            <Heading as="h3" size="lg">Fast Summarization</Heading>
-            <Text mt={2}>Get summaries in seconds.</Text>
+            <Heading as="h3" size="lg" color="black">Fast Summarization</Heading>
+            <Text mt={2} color="gray.700">Get summaries in seconds.</Text>
           </GridItem>
           <GridItem>
-            <Heading as="h3" size="lg">Accurate Results</Heading>
-            <Text mt={2}>High accuracy in text summarization.</Text>
+            <Heading as="h3" size="lg" color="black">Accurate Results</Heading>
+            <Text mt={2} color="gray.700">High accuracy in text summarization.</Text>
           </GridItem>
           <GridItem>
-            <Heading as="h3" size="lg">Easy to Use</Heading>
-            <Text mt={2}>User-friendly interface.</Text>
+            <Heading as="h3" size="lg" color="black">Easy to Use</Heading>
+            <Text mt={2} color="gray.700">User-friendly interface.</Text>
           </GridItem>
           <GridItem>
-            <Heading as="h3" size="lg">Free to Use</Heading>
-            <Text mt={2}>No hidden charges.</Text>
+            <Heading as="h3" size="lg" color="black">Free to Use</Heading>
+            <Text mt={2} color="gray.700">No hidden charges.</Text>
           </GridItem>
         </SimpleGrid>
       </Box>
 
       {/* How It Works Section */}
       <Box width="100%" py={12} bg="gray.50">
-        <Heading as="h2" size="xl" mb={8}>How It Works</Heading>
-        <Text fontSize="lg">Simply enter your text, click on the summarize button, and get a concise summary instantly.</Text>
+        <Heading as="h2" size="xl" mb={8} color="black">How It Works</Heading>
+        <Text fontSize="lg" color="gray.700">Simply enter your text, click on the summarize button, and get a concise summary instantly.</Text>
       </Box>
 
       {/* Testimonials Section */}
       <Box width="100%" py={12}>
-        <Heading as="h2" size="xl" mb={8}>Testimonials</Heading>
+        <Heading as="h2" size="xl" mb={8} color="black">Testimonials</Heading>
         <SimpleGrid columns={{ base: 1, md: 2 }} spacing={10}>
           <GridItem>
-            <Text fontSize="lg">"This text summarizer is amazing! It saves me so much time." - User A</Text>
+            <Text fontSize="lg" color="gray.700">"This text summarizer is amazing! It saves me so much time." - User A</Text>
           </GridItem>
           <GridItem>
-            <Text fontSize="lg">"Highly accurate and easy to use. I love it!" - User B</Text>
+            <Text fontSize="lg" color="gray.700">"Highly accurate and easy to use. I love it!" - User B</Text>
           </GridItem>
         </SimpleGrid>
       </Box>
 
       {/* Call to Action Section */}
       <Box width="100%" py={12} bg="gray.50" textAlign="center">
-        <Heading as="h2" size="xl" mb={8}>Try It Now!</Heading>
+        <Heading as="h2" size="xl" mb={8} color="black">Try It Now!</Heading>
         <Button colorScheme="blue" size="lg">Summarize Your Text</Button>
       </Box>
 
       <Flex as="footer" width="100%" py={8} justifyContent="center" borderTop="1px solid #eaeaea" mt={8}>
-        <Link href="/privacy-policy" mx={4}>Privacy Policy</Link>
-        <Link href="/terms-of-service" mx={4}>Terms of Service</Link>
-        <Link href="/contact-us" mx={4}>Contact Us</Link>
+        <Link href="/privacy-policy" mx={4} color="gray.700">Privacy Policy</Link>
+        <Link href="/terms-of-service" mx={4} color="gray.700">Terms of Service</Link>
+        <Link href="/contact-us" mx={4} color="gray.700">Contact Us</Link>
       </Flex>
     </Container>
   );
