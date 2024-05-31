@@ -1,8 +1,9 @@
 import { useState } from "react";
-import { Container, Text, VStack, Textarea, Button, Box, Heading, Link, Flex } from "@chakra-ui/react";
+import { Container, Text, VStack, Textarea, Button, Box, Heading, Link, Flex, Image } from "@chakra-ui/react";
 
 const Index = () => {
   const [text, setText] = useState("");
+  const [headerImageUrl, setHeaderImageUrl] = useState("path/to/your/image.jpg");
   const [summary, setSummary] = useState("");
 
   const handleSummarize = () => {
@@ -14,7 +15,10 @@ const Index = () => {
   return (
     <Container centerContent maxW="container.md" height="100vh" display="flex" flexDirection="column" justifyContent="space-between" alignItems="center">
       <VStack spacing={4} width="100%">
-        <Heading as="h1" size="xl">Text Summarizer</Heading>
+        <Flex width="100%" alignItems="center" justifyContent="space-between" mb={4}>
+          <Heading as="h1" size="xl">Text Summarizer</Heading>
+          <Image src={headerImageUrl} alt="Header Image" boxSize="100px" objectFit="cover" borderRadius="full" />
+        </Flex>
         <Textarea
           placeholder="Enter your text here..."
           value={text}
