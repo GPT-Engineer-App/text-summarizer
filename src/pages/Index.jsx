@@ -1,16 +1,28 @@
 import { useState } from "react";
 import { useColorModeValue } from "@chakra-ui/react";
-import { Container, Text, VStack, Textarea, Button, Box, Heading, Link, Flex, Image, SimpleGrid, GridItem } from "@chakra-ui/react";
+import { Container, Text, VStack, Textarea, Button, Box, Heading, Link, Flex, Image, SimpleGrid, GridItem, Input } from "@chakra-ui/react";
 
 const Index = () => {
   const [text, setText] = useState("");
   const [headerImageUrl, setHeaderImageUrl] = useState("path/to/your/image.jpg");
   const [summary, setSummary] = useState("");
+  const [file, setFile] = useState(null);
 
   const handleSummarize = () => {
     // Placeholder for summary logic
     const summarizedText = text.split(" ").slice(0, 10).join(" ") + "...";
     setSummary(summarizedText);
+  };
+
+  const handleFileUpload = (event) => {
+    const uploadedFile = event.target.files[0];
+    setFile(uploadedFile);
+
+    const reader = new FileReader();
+    reader.onload = (e) => {
+      setText(e.target.result);
+    };
+    reader.readAsText(uploadedFile);
   };
 
   return (
@@ -20,6 +32,7 @@ const Index = () => {
           <Heading as="h1" size="2xl" color="black">Text Summarizer</Heading>
           <Image src={headerImageUrl} alt="Header Image" boxSize="100px" objectFit="cover" borderRadius="full" />
         </Flex>
+        <Input type="file" accept=".txt" onChange={handleFileUpload} mb={4} />
         <Textarea
           placeholder="Enter your text here..."
           value={text}
