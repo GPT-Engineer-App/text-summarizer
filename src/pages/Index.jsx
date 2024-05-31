@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useColorModeValue } from "@chakra-ui/react";
 import { Container, Text, VStack, Textarea, Button, Box, Heading, Link, Flex, Image, SimpleGrid, GridItem } from "@chakra-ui/react";
 
 const Index = () => {
@@ -13,7 +14,7 @@ const Index = () => {
   };
 
   return (
-    <Container centerContent maxW="container.md" display="flex" flexDirection="column" justifyContent="space-between" alignItems="center" py={8} px={4}>
+    <Container centerContent maxW="container.md" display="flex" flexDirection="column" justifyContent="space-between" alignItems="center" py={8} px={4} bg={useColorModeValue("gray.100", "gray.900")}>
       <VStack spacing={8} width="100%">
         <Flex width="100%" alignItems="center" justifyContent="space-between" mb={8}>
           <Heading as="h1" size="2xl">Text Summarizer</Heading>
