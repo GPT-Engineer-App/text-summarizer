@@ -1,16 +1,27 @@
-import { useState } from "react";
+import { useState, useRef } from "react";
 import { useColorModeValue } from "@chakra-ui/react";
 import { Container, Text, VStack, Textarea, Button, Box, Heading, Link, Flex, Image, SimpleGrid, GridItem } from "@chakra-ui/react";
 
 const Index = () => {
   const [text, setText] = useState("");
   const [headerImageUrl, setHeaderImageUrl] = useState("path/to/your/image.jpg");
+  const [file, setFile] = useState(null);
+  const fileInputRef = useRef(null);
   const [summary, setSummary] = useState("");
 
   const handleSummarize = () => {
     // Placeholder for summary logic
     const summarizedText = text.split(" ").slice(0, 10).join(" ") + "...";
     setSummary(summarizedText);
+  };
+
+  const handleFileChange = (event) => {
+    const selectedFile = event.target.files[0];
+    setFile(selectedFile);
+  };
+
+  const handleUploadClick = () => {
+    fileInputRef.current.click();
   };
 
   return (
@@ -30,6 +41,16 @@ const Index = () => {
           color="black"
         />
         <Button colorScheme="teal" onClick={handleSummarize} size="lg">Summarize</Button>
+        <Button colorScheme="teal" onClick={handleUploadClick} size="lg">Upload File</Button>
+        <input
+          type="file"
+          ref={fileInputRef}
+          style={{ display: "none" }}
+          onChange={handleFileChange}
+        />
+        {file && (
+          <Text mt={4} color="gray.700">Uploaded File: {file.name}</Text>
+        )}
         {summary && (
           <Box p={6} bg="gray.100" borderRadius="md" width="100%">
             <Heading as="h2" size="lg" color="black">Summary</Heading>
