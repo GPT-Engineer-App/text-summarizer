@@ -3,22 +3,22 @@ import { Link as RouterLink } from "react-router-dom";
 
 const Navbar = () => {
   return (
-    <Box bg={useColorModeValue("gray.100", "gray.900")} px={4}>
+    <Box bg="white" px={4} boxShadow="md">
       <Flex h={16} alignItems={"center"} justifyContent={"space-between"}>
-        <Box>Text Summarizer</Box>
+        <Box color="teal.500" fontWeight="bold" fontSize="xl">Text Summarizer</Box>
         <Flex alignItems={"center"}>
           <RouterLink to="/">
-            <Link px={2} py={1} rounded={"md"} _hover={{ textDecoration: "none", bg: useColorModeValue("gray.200", "gray.700") }}>
+            <Link px={2} py={1} rounded={"md"} _hover={{ textDecoration: "none", bg: "teal.100" }} color="teal.500">
               Home
             </Link>
           </RouterLink>
           <RouterLink to="/about">
-            <Link px={2} py={1} rounded={"md"} _hover={{ textDecoration: "none", bg: useColorModeValue("gray.200", "gray.700") }}>
+            <Link px={2} py={1} rounded={"md"} _hover={{ textDecoration: "none", bg: "teal.100" }} color="teal.500">
               About
             </Link>
           </RouterLink>
           <RouterLink to="/contact">
-            <Link px={2} py={1} rounded={"md"} _hover={{ textDecoration: "none", bg: useColorModeValue("gray.200", "gray.700") }}>
+            <Link px={2} py={1} rounded={"md"} _hover={{ textDecoration: "none", bg: "teal.100" }} color="teal.500">
               Contact
             </Link>
           </RouterLink>
